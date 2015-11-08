@@ -83,7 +83,8 @@ Returns: "fxjqzznvg"
 
 class BusinessTasks:
 
-    def getTask(self, tasks, n):
+    @staticmethod
+    def getTask(tasks, n):
         ind = 0
         while len(tasks) > 1:
             ind = (n - 1 + (ind % len(tasks))) % len(tasks)
@@ -93,11 +94,11 @@ class BusinessTasks:
 
 if __name__ == '__main__':
 
-    t = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t",
-         "u","v","w","x","y","z"]
-    n0 = 17
-    # t = ["a","b","c","d"]
-    # n0 = 2
+    # t = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t",
+    #      "u","v","w","x","y","z"]
+    # n0 = 17
+    t = ["a","b","c","d"]
+    n0 = 2
     # t = ["a","b","c","d","e"]
     # n0 = 3
     # t = ["zlqamum","yjsrpybmq","tjllfea","fxjqzznvg","nvhekxr","am","skmazcey","piklp",
