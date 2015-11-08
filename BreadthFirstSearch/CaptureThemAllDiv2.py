@@ -95,3 +95,48 @@ Returns: 3
 Returns: 6
 
 '''
+
+
+class CaptureThemAll:
+
+    @staticmethod
+    def gen_paths(cur_pos, rook, queen):
+        paths = []
+        cur_pos[1]['moves'] += 1
+        for i in [-2, -1, 1, 2]:
+            if 97 <= ord(cur_pos[0][0]) + i <= 104:
+                for j in [-2, -1, 1, 2]:
+                    if 1 <= int(cur_pos[0][1]) + j <= 8:
+                        if not i * j in [-4, -1, 1, 4]:
+                            new_dict = cur_pos[1].copy()
+                            new = chr(ord(cur_pos[0][0]) + i) + str(int(
+                                cur_pos[0][1]) + j)
+                            if new == rook:
+                                new_dict['rook'] = True
+                            if new == queen:
+                                new_dict['queen'] = True
+                            paths.append([new, new_dict])
+        return paths
+
+    @staticmethod
+    def fastKnight(knight, rook, queen):
+
+        knight = [knight, {'moves': 0, 'rook': False, 'queen': False}]
+
+        frontier = CaptureThemAll.gen_paths(knight, rook, queen)
+        while frontier:
+            # print(frontier)
+            cur_pos = frontier.pop(0)
+            # if cur_pos[1]['rook'] or cur_pos[1]['queen']: print(cur_pos)
+            if cur_pos[1]['rook'] and cur_pos[1]['queen']:
+                return cur_pos[1]['moves']
+            else:
+                frontier.extend(CaptureThemAll.gen_paths(cur_pos, rook, queen))
+        return None
+
+if __name__ == '__main__':
+
+    cta = CaptureThemAll()
+    print(cta.fastKnight('h8', 'e2', 'd2'))
+    print(cta.fastKnight("a5", "b7", "e4"))
+    print(cta.fastKnight("a1", "a2", "b2"))
