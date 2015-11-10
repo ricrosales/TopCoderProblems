@@ -114,9 +114,9 @@ class MedalTable:
                           ' ' + str(d[i]['b']))
         return output
 
-
     @staticmethod
     def greater_than(a, b, d):
+
         if d[a]['g'] > d[b]['g']:
             return True
         elif d[a]['g'] == d[b]['g']:
@@ -139,6 +139,7 @@ class MedalTable:
 
     @staticmethod
     def mergesort(alist, d):
+
         if len(alist) > 1:
             mid = len(alist) // 2
             left_list = alist[:mid]
@@ -167,11 +168,20 @@ class MedalTable:
                 j += 1
                 k += 1
 
-
 if __name__ == '__main__':
 
-    # l = ["GER AUT SUI", "AUT SUI GER", "SUI GER AUT"]
-    # l = ["USA AUT ROM"]
-    l = ["ITA JPN AUS", "KOR TPE UKR", "KOR KOR GBR", "KOR CHN TPE"]
     mt = MedalTable()
+
+    # "AUT 1 1 1",  "GER 1 1 1",  "SUI 1 1 1"
+    l = ["GER AUT SUI", "AUT SUI GER", "SUI GER AUT"]
     print(mt.generate(l))
+
+    # "USA 1 0 0",  "AUT 0 1 0",  "ROM 0 0 1"
+    l = ["USA AUT ROM"]
+    print(mt.generate(l))
+
+    # "KOR 3 1 0","ITA 1 0 0","TPE 0 1 1","CHN 0 1 0","JPN 0 1 0","AUS 0 0 1",
+    # "GBR 0 0 1","UKR 0 0 1"
+    l = ["ITA JPN AUS", "KOR TPE UKR", "KOR KOR GBR", "KOR CHN TPE"]
+    print(mt.generate(l))
+

@@ -85,6 +85,7 @@ class BusinessTasks:
 
     @staticmethod
     def getTask(tasks, n):
+
         ind = 0
         while len(tasks) > 1:
             ind = (n - 1 + (ind % len(tasks))) % len(tasks)
@@ -94,16 +95,27 @@ class BusinessTasks:
 
 if __name__ == '__main__':
 
-    # t = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t",
-    #      "u","v","w","x","y","z"]
-    # n0 = 17
-    t = ["a","b","c","d"]
-    n0 = 2
-    # t = ["a","b","c","d","e"]
-    # n0 = 3
-    # t = ["zlqamum","yjsrpybmq","tjllfea","fxjqzznvg","nvhekxr","am","skmazcey","piklp",
-    #      "olcqvhg","dnpo","bhcfc","y","h","fj","bjeoaxglt","oafduixsz","kmtbaxu",
-    #      "qgcxjbfx","my","mlhy","bt","bo","q"]
-    # n0 = 9000000
     bt = BusinessTasks()
+
+    # n
+    t = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q",
+         "r","s","t","u","v","w","x","y","z"]
+    n0 = 17
+    print(bt.getTask(t, n0))
+
+    # d
+    t = ["a","b","c","d","e"]
+    n0 = 3
+    print(bt.getTask(t, n0))
+
+    # fxjqzznvg
+    t = ["zlqamum","yjsrpybmq","tjllfea","fxjqzznvg","nvhekxr","am","skmazcey",
+         "piklp","olcqvhg","dnpo","bhcfc","y","h","fj","bjeoaxglt","oafduixsz",
+         "kmtbaxu","qgcxjbfx","my","mlhy","bt","bo","q"]
+    n0 = 9000000
+    print(bt.getTask(t, n0))
+
+    # epsilon
+    t = ["alpha","beta","gamma","delta","epsilon"]
+    n0 = 1
     print(bt.getTask(t, n0))

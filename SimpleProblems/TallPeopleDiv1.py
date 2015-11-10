@@ -84,8 +84,16 @@ class TallPeople:
 
 if __name__ == '__main__':
 
-    # l = ["1 1", "1 1"]
-    l = ["1 2", "4 5", "3 6"]
-    # l = ["9 2 3", "4 8 7"]
     tp = TallPeople()
+
+    # 1, 1
+    l = ["1 1", "1 1"]
+    print(tp.getPeople(l))
+
+    # 4, 4
+    l = ["1 2", "4 5", "3 6"]
+    print(tp.getPeople(l))
+
+    # 4, 7
+    l = ["9 2 3", "4 8 7"]
     print(tp.getPeople(l))

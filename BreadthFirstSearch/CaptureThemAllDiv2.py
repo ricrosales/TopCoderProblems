@@ -122,12 +122,10 @@ class CaptureThemAll:
     def fastKnight(knight, rook, queen):
 
         knight = [knight, {'moves': 0, 'rook': False, 'queen': False}]
-
         frontier = CaptureThemAll.gen_paths(knight, rook, queen)
+
         while frontier:
-            # print(frontier)
             cur_pos = frontier.pop(0)
-            # if cur_pos[1]['rook'] or cur_pos[1]['queen']: print(cur_pos)
             if cur_pos[1]['rook'] and cur_pos[1]['queen']:
                 return cur_pos[1]['moves']
             else:
@@ -137,6 +135,13 @@ class CaptureThemAll:
 if __name__ == '__main__':
 
     cta = CaptureThemAll()
-    print(cta.fastKnight('h8', 'e2', 'd2'))
-    print(cta.fastKnight("a5", "b7", "e4"))
+    # 2
+    print(cta.fastKnight("a1", "b3", "c5"))
+    # 3
+    print(cta.fastKnight('b1', 'c3', 'a3'))
+    # 6
     print(cta.fastKnight("a1", "a2", "b2"))
+    # 3
+    print(cta.fastKnight("a5", "b7", "e4"))
+    # 6
+    print(cta.fastKnight("h8", "e2", "d2"))
